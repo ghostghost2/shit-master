@@ -17,3 +17,9 @@ sudo apt-get install libssl1.0-dev -y
 ./autogen.sh
 ./configure --disable-gui-tests --disable-shared --disable-tests --disable-bench --with-gui=qt5 
 make
+cd src
+strip shitd
+strip shit-cli
+strip shit-tx
+cd qt
+strip shit-qt
