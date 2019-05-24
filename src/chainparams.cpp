@@ -133,9 +133,9 @@ public:
         nZerocoinStartHeight = INT_MAX;
         nMaturity = 15;
         nMasternodeCountDrift = 20;
-        nMasternodeCollateralAmt = 1000;
-        nMasternodeCollateralAmtNew = 5000;
-        nMasternodeCollateralAmtNewEnd = 10000;
+        nMasternodeCollateralAmt = 5000;
+        nMasternodeCollateralAmtNew = 10000;
+        nMasternodeCollateralAmtNewEnd = 15000;
         nMinStakeInput = 15 * COIN;
         nModifierUpdateBlock = 615800;
         nMaxMoneyOut = 70000000 * COIN;
