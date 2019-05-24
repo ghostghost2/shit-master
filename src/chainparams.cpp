@@ -275,12 +275,12 @@ public:
         nZerocoinLastOldParams = INT_MAX;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1524873600;
-        genesis.nNonce = 2394236;
+        genesis.nTime = 1558665900;
+        genesis.nNonce = 700080;
 
 		//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-        hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000dfdec6a9190b26520e93ef5eba15a82646a47ddf8fb5be4477a836467ee"));
+        //hashGenesisBlock = genesis.GetHash();
+        assert(hashGenesisBlock == uint256("0x000007ac0c809b5c545a924a8a88228bb5520f9511bf3e6b22e21d6d21e4e2c5"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
