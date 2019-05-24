@@ -280,7 +280,7 @@ public:
 
 		//printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         //hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000007ac0c809b5c545a924a8a88228bb5520f9511bf3e6b22e21d6d21e4e2c5"));
+        //assert(hashGenesisBlock == uint256("0x000007ac0c809b5c545a924a8a88228bb5520f9511bf3e6b22e21d6d21e4e2c5"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
