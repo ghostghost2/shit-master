@@ -1794,7 +1794,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
 			(txin.prevout.hash == uint256("0x1b723bf04e3620bfeb0c531cc19cb9959f7f24c91e8c4140c450ca82b049ac59") && txin.prevout.n == 0) ||
 			(txin.prevout.hash == uint256("0xe45f98571e742504deaf772e709e912addbe050ef6626a45562ef9e2540587df") && txin.prevout.n == 0) ||
 			(txin.prevout.hash == uint256("0x008ea832b9bfa625f414daef234f2e94b3f23c78889419b516ffe9edddfc35c6") && txin.prevout.n == 0) ||
-            (txin.prevout.hash == uint256("0x46df6a02227b7ddf0c28cfaba501f61235b2404ebfe583d7502d1bd69e9edac0") && txin.prevout.n == 0)) 
+            (txin.prevout.hash == uint256("0x46df6a02227b7ddf0c28cfaba501f61235b2404ebfe583d7502d1bd69e9edac0") && txin.prevout.n == 0))
 		{
             //printf("BAD SPEND @ height %d (txin.prevout.hash %s txin.prevout.n %d)\n", pindexBest->nHeight, txin.prevout.hash.ToString().c_str(), txin.prevout.n);
             return state.DoS(10, false, REJECT_INVALID, "CTransaction::CheckTransaction() : attempted spend of locked funds");
@@ -1924,7 +1924,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
 				};
 
                 for (int i = 0; i < 305; i++) {
-                    if (badStakers.compare(badAddr[i]) == 0 && badAddr[0] == "  ") 
+                    if (badStakers.compare(badAddr[i]) == 0 && badAddr[0] == "  ")
 					{
                         return state.DoS(10, false, REJECT_INVALID, "Bad Actor", false);
                     }
@@ -2741,7 +2741,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
                     nSubsidy = 26 * COIN;
                 } else if (nHeight <= 353300 && nHeight > 333140) { // 14 days
                     nSubsidy = 28 * COIN;
-                } else if (nHeight <= 373460 && nHeight > 353300) { // 14 days  Peak of rewards 
+                } else if (nHeight <= 373460 && nHeight > 353300) { // 14 days  Peak of rewards
                     nSubsidy = 30 * COIN;
                 } else if (nHeight <= 393620 && nHeight > 373460) { // 14 days
                     nSubsidy = 29.5 * COIN;
@@ -2806,8 +2806,8 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
             return ret;
         }
 
-        //Treasury blocks start from 192021 and then each 1440 block
-        int nStartTreasuryBlock = 192021;
+        //Treasury blocks start from 5000 and then each 1440 block
+        int nStartTreasuryBlock = 5000;
         int nTreasuryBlockStep = 1440;
 
         bool IsTreasuryBlock(int nHeight)
@@ -2837,7 +2837,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
                     return 1872 * COIN;
                 } else if (nHeight <= 353300 && nHeight > 333140) { // 14 days
                     return 2016 * COIN;
-                } else if (nHeight <= 373460 && nHeight > 353300) { // 14 days 
+                } else if (nHeight <= 373460 && nHeight > 353300) { // 14 days
                     return 2160 * COIN;
                 } else if (nHeight <= 393620 && nHeight > 373460) { // 14 days
                     return 2124 * COIN;
@@ -3070,7 +3070,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
         bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, bool fScriptChecks, unsigned int flags, bool cacheStore, std::vector<CScriptCheck>* pvChecks)
         {
             //if (!tx.IsCoinBase() && !tx.IsZerocoinSpend()) {
-            if (!tx.IsCoinBase()) {  
+            if (!tx.IsCoinBase()) {
 				if (pvChecks)
                     pvChecks->reserve(tx.vin.size());
 
@@ -4849,7 +4849,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
                 // extract collateral info from masternode list
                 CMasternode* pmn = mnodeman.Find(block.vtx[1].vout[2].scriptPubKey);
                 CTxDestination mnaddress;
-                
+
                 if (!ExtractDestination(block.vtx[1].vout[2].scriptPubKey, mnaddress))
                     LogPrintf("WARNING: unknown masternode type/address\n");
                 //CBitcoinAddress mnpayee(mnaddress);
@@ -7473,7 +7473,7 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
         //       so we can leave the existing clients untouched (old SPORK will stay on so they don't see even older clients).
         //       Those old clients won't react to the changes of the other (new) SPORK because at the time of their implementation
         //       it was the one which was commented out
-		
+
 		// This update was done with a baby in one hand btw :) Welcome baby Holly 4-9-19
         int ActiveProtocol()
         {
