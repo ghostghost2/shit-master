@@ -22,7 +22,7 @@
 <h3>Block Rewards</h3>
 <table>
 <tbody>
-<tr><th></th><th>BLOCK</th><th>REWARD PER BLOCK</th><th>MASTERNODE REWARD</th><th>STAKING REWARD</th><th>ROUND TIME FRAME</th></tr>
+<tr><th></th><th>BLOCK</th><th>REWARD PER BLOCK</th><th>ROUND TIME FRAME</th></tr>
 <tr>
 <td>PREMINE</td>
 <td>0 - 0</td>
