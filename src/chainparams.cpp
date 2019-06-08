@@ -106,7 +106,7 @@ public:
     CMainParams()
     {
         networkID = CBaseChainParams::MAIN;
-        vTreasuryRewardAddress = "5dbc28a38b85f69479280f2f7a6f4793946156e6";
+        vTreasuryRewardAddress = "SWLsAqMzJeouHrj8WMgrGfcvjNc2TfvF6c";
         strNetworkID = "main";
 
         /**
