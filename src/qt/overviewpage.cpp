@@ -250,7 +250,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     QSettings settings;
     bool settingShowAllBalances = !settings.value("fHideZeroBalances").toBool();
     bool showSumAvailable = settingShowAllBalances || sumTotalBalance != availableTotalBalance;
-    //ui->labelBalanceTextz->setVisible(showSumAvailable);
+    // ui->labelBalanceTextz->setVisible(showSumAvailable);
     bool showSHITAvailable = settingShowAllBalances || shitAvailableBalance != nTotalBalance;
     bool showWatchOnlySHITAvailable = watchOnlyBalance != nTotalWatchBalance;
     bool showSHITPending = settingShowAllBalances || unconfirmedBalance != 0;
@@ -401,21 +401,14 @@ void OverviewPage::updateMasternodeInfo()
 		double BlockReward = GetBlockValue(chainActive.Height());
         double roi1 = (0.90 * BlockReward * BlockCount24h) / mn1 / COIN;
 
-    if (IsSporkActive(SPORK_26_NEW_COLLATERAL)) {
+    if (IsSporkActive(SPORK_22_NEW_COLLATERAL)) {
             CAmount tNodesSumm = mn1 * Params().MasternodeCollateralAmtNew();
             CAmount tMoneySupply = chainActive.Tip()->nMoneySupply;
             double tLocked = tMoneySupply > 0 ? 100 * static_cast<double>(tNodesSumm) / static_cast<double>(tMoneySupply / COIN) : 0;
             ui->label_LockedCoin_value->setText(QString::number(tNodesSumm).append(" (" + QString::number(tLocked, 'f', 1) + "%)"));
             ui->roi_1->setText(mn1 == 0 ? "-" : QString::number(roi1, 'f', 0).append("  "));
-            ui->roi_2->setText(mn1 == 0 ? " " : QString::number(5000 / roi1, 'f', 1).append(" days"));
-		}else if (IsSporkActive(SPORK_27_NEW_COLLATERAL_2)) {
-            CAmount tNodesSumm = mn1 * Params().MasternodeCollateralAmtNewEnd();
-            CAmount tMoneySupply = chainActive.Tip()->nMoneySupply;
-            double tLocked = tMoneySupply > 0 ? 100 * static_cast<double>(tNodesSumm) / static_cast<double>(tMoneySupply / COIN) : 0;
-            ui->label_LockedCoin_value->setText(QString::number(tNodesSumm).append(" (" + QString::number(tLocked, 'f', 1) + "%)"));
-            ui->roi_1->setText(mn1 == 0 ? "-" : QString::number(roi1, 'f', 0).append("  "));
-            ui->roi_2->setText(mn1 == 0 ? " " : QString::number(1000 / roi1, 'f', 1).append(" days"));
-		}else{
+            ui->roi_2->setText(mn1 == 0 ? " " : QString::number(2000 / roi1, 'f', 1).append(" days"));
+	}else{
 			CAmount tNodesSumm = mn1 * Params().MasternodeCollateralAmt();
 			CAmount tMoneySupply = chainActive.Tip()->nMoneySupply;
 			double tLocked = tMoneySupply > 0 ? 100 * static_cast<double>(tNodesSumm) / static_cast<double>(tMoneySupply / COIN) : 0;
@@ -430,12 +423,10 @@ void OverviewPage::updateMasternodeInfo()
     }
 
     // Update Collateral Info
-  if (IsSporkActive(SPORK_26_NEW_COLLATERAL)) {
-        ui->label_lcolat->setText("10000"); 
-	}else if (IsSporkActive(SPORK_27_NEW_COLLATERAL_2)) {
-		ui->label_lcolat->setText("15000");
+  if (IsSporkActive(SPORK_22_NEW_COLLATERAL)) {
+        ui->label_lcolat->setText("2000"); 
 	}else{
-		ui->label_lcolat->setText("5000");
+		ui->label_lcolat->setText("1000");
     }
 }
 
