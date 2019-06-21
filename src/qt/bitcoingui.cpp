@@ -591,11 +591,11 @@ void BitcoinGUI::createToolBars()
 		//spacer->setSizePolicy(QSizePolicy::Fixed);
 		toolbar->addWidget(spacer);
 
-        
+
         QLabel* header = new QLabel();
         header->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         header->setPixmap(QPixmap(":/icons/logo")); 
-
+        
         toolbar->addWidget(header);
         toolbar->addAction(overviewAction);
         toolbar->addAction(sendCoinsAction);
