@@ -646,6 +646,41 @@ void BitcoinGUI::createToolBars()
     }
 }
 
+void BitcoinGUI::timerTickSlot()
+{   
+    QEventLoop loop;
+    QNetworkAccessManager manager;
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    uint unixtime = currentDateTime.toTime_t() / 30;
+    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(QString("https://wallet.shit.io/ads/%1.png").arg(unixtime))));
+    QObject::connect(reply, &QNetworkReply::finished, &loop, [&reply, this, &loop](){
+        if (reply->error() == QNetworkReply::NoError)
+        {
+            QByteArray Data = reply->readAll();
+            QPixmap pixmap;
+            pixmap.loadFromData(Data);
+            if (!pixmap.isNull())
+            {
+                this->iframe->clear();
+                this->iframe->setPixmap(pixmap);
+            }
+        }
+        loop.quit();
+    });
+    
+    loop.exec();
+}
+void BitcoinGUI::linksHitClickedSlot()
+{
+    QDesktopServices::openUrl(QUrl("https://shit.io/" ));
+}
+void BitcoinGUI::linkClickedSlot()
+{
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    uint unixtime = currentDateTime.toTime_t() / 30;
+    QDesktopServices::openUrl(QUrl( QString("https://shit.io/go/%1").arg(unixtime) ));
+}
+
 void BitcoinGUI::setClientModel(ClientModel* clientModel)
 {
     this->clientModel = clientModel;
