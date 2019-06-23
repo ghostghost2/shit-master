@@ -57,12 +57,6 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QVBoxLayout>
-#include <QNetworkAccessManager>
-#include <QUrl>
-#include <QBuffer>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QDesktopServices>
 
 #if QT_VERSION < 0x050000
 #include <QTextDocument>
