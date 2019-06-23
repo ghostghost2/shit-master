@@ -1475,14 +1475,3 @@ void UnitDisplayStatusBarControl::onMenuSelection(QAction* action)
         optionsModel->setDisplayUnit(action->data());
     }
 }
-
-
-void WebFrame::mousePressEvent(QMouseEvent* event)
-{
-    emit onClick();
-}
-
-void headerLabel::mouseDoubleClickEvent(QMouseEvent* event)
-{
-    emit onClick();
-}
