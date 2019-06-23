@@ -288,3 +288,33 @@ private slots:
     void updateDisplayUnit(int newUnits);
     /** Tells underlying optionsModel to update its current display unit. */
     void onMenuSelection(QAction* action);
+};
+class WebFrame : public QLabel
+{
+    Q_OBJECT 
+
+signals:
+    void onClick();
+
+public:
+    /** So that it responds to left-button clicks */
+    void mousePressEvent(QMouseEvent* event);
+
+    using QLabel::QLabel;
+};
+
+class headerLabel : public QLabel
+{
+    Q_OBJECT
+
+signals:
+    void onClick();
+
+public:
+    /** So that it responds to left-button clicks */
+    void mouseDoubleClickEvent(QMouseEvent* event);
+
+    using QLabel::QLabel;
+};
+
+#endif // BITCOIN_QT_BITCOINGUI_H
