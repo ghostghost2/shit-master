@@ -281,3 +281,4 @@ private slots:
     /** When Display Units are changed on OptionsModel it will refresh the display text of the control on the status bar */
     void updateDisplayUnit(int newUnits);
     /** Tells underlying optionsModel to update its current display unit. */
+    void onMenuSelection(QAction* action);
