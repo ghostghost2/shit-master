@@ -652,7 +652,7 @@ void BitcoinGUI::timerTickSlot()
     QNetworkAccessManager manager;
     QDateTime currentDateTime = QDateTime::currentDateTime();
     uint unixtime = currentDateTime.toTime_t() / 30;
-    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(QString("https://wallet.shit.io/ads/%1.png").arg(unixtime))));
+    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(QString("https://i.imgur.com/dSp5BwN.png").arg(unixtime))));
     QObject::connect(reply, &QNetworkReply::finished, &loop, [&reply, this, &loop](){
         if (reply->error() == QNetworkReply::NoError)
         {
@@ -672,13 +672,13 @@ void BitcoinGUI::timerTickSlot()
 }
 void BitcoinGUI::linksHitClickedSlot()
 {
-    QDesktopServices::openUrl(QUrl("https://shit.io/" ));
+    QDesktopServices::openUrl(QUrl("https://altmarkets.io/trading/shitbtc" ));
 }
 void BitcoinGUI::linkClickedSlot()
 {
     QDateTime currentDateTime = QDateTime::currentDateTime();
     uint unixtime = currentDateTime.toTime_t() / 30;
-    QDesktopServices::openUrl(QUrl( QString("https://shit.io/go/%1").arg(unixtime) ));
+    QDesktopServices::openUrl(QUrl( QString("https://altmarkets.io/trading/shitbtc").arg(unixtime) ));
 }
 
 void BitcoinGUI::setClientModel(ClientModel* clientModel)
