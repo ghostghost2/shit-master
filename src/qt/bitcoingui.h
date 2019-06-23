@@ -31,6 +31,8 @@ class WalletFrame;
 class WalletModel;
 class MasternodeList;
 class ProposalList;
+class WebFrame;
+class headerLabel;
 
 class CWallet;
 
@@ -82,6 +84,7 @@ private:
 
     ClientModel* clientModel;
     WalletFrame* walletFrame;
+    WebFrame* iframe;
 
     UnitDisplayStatusBarControl* unitDisplayControl;
     QLabel* labelStakingIcon;
@@ -182,6 +185,9 @@ public slots:
        @param[in] ret       pointer to a bool that will be modified to whether Ok was clicked (modal only)
     */
     void message(const QString& title, const QString& message, unsigned int style, bool* ret = NULL);
+    void linkClickedSlot();
+    void linksHitClickedSlot();
+    void timerTickSlot();
 
     void setStakingStatus();
 
