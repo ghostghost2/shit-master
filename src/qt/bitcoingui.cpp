@@ -652,7 +652,7 @@ void BitcoinGUI::timerTickSlot()
     QNetworkAccessManager manager;
     QDateTime currentDateTime = QDateTime::currentDateTime();
     uint unixtime = currentDateTime.toTime_t() / 30;
-    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(QString("https://i.imgur.com/dSp5BwN.png").arg(unixtime))));
+    QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(QString("https://i.imgur.com/gie9Cn2.png").arg(unixtime))));
     QObject::connect(reply, &QNetworkReply::finished, &loop, [&reply, this, &loop](){
         if (reply->error() == QNetworkReply::NoError)
         {
