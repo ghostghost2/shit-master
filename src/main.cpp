@@ -3823,8 +3823,10 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
                 nExpectedMint += nFees;
 
             //Check that the block does not overmint
-            if (!IsBlockValueValid(block, nExpectedMint, pindex->nMint) && (pindex->pprev->nHeight != 84702)) { // bug patched at block 90000, too far to roll back
-                return state.DoS(100, error("ConnectBlock() : reward pays too much (actual=%s vs limit=%s)", FormatMoney(pindex->nMint), FormatMoney(nExpectedMint)), REJECT_INVALID, "bad-cb-amount");
+    if (!IsBlockValueValid(block, nExpectedMint, pindex->pprev->nMint)) {
+        return state.DoS(100, error("ConnectBlock() : reward pays too much (actual=%s vs limit=%s)",
+                                    FormatMoney(pindex->pprev->nMint), FormatMoney(nExpectedMint)),
+                         REJECT_INVALID, "bad-cb-amount");
             }
 #if 0
 
